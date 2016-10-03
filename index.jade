@@ -3,7 +3,26 @@ html
   head
     title Hello World
     script( src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js" )
-  body( ng-app )
+    script( type="text/javascript" ).
+      let app = angular.module('compsApp', [])
+
+      app.component('compCard', {
+        bindings: {
+          address: '@',
+        },
+        template: `
+          <div class="card">
+            <h1>{{$ctrl.address}}</h1>
+            <p>Information about this comp.</p>
+          </div>
+        `
+      });
+    style.
+      .card {
+        border: 1px solid black;
+        padding: 10px;
+      }
+  body( ng-app="compsApp" )
     h1 Hello World!
     p Some information here.
-    {{3 + 7}}
+    comp-card( address="116 New Mongtomery" )
