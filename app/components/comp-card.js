@@ -5,7 +5,7 @@ import {} from './comp-card.less';
 module.exports = angular.module('app.components.comp-card', [])
 .component('compCard', {
   bindings: {
-    address: '@',
+    compData: '<',
   },
   template: require('./comp-card.jade')(),
 })

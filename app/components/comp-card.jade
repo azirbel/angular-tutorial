@@ -1,3 +1,6 @@
 .card
-  h1 {{$ctrl.address}}
-  p Information about this comp.
+  h1 {{$ctrl.compData.street}}
+  p
+    | {{$ctrl.compData.bedrooms}} bed -
+    | {{$ctrl.compData.bathrooms}} bath -
+    | {{$ctrl.compData.price_cents / 100 | currency:"$":0}}
