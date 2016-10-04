@@ -1,25 +1,6 @@
 import angular from 'angular';
 
-const COMPS = [
-  {
-    street: '116 New Montgomery St',
-    bedrooms: 3,
-    bathrooms: 4,
-    price_cents: 32500000,
-  },
-  {
-    street: '123 Sesame St',
-    bedrooms: 2,
-    bathrooms: 2,
-    price_cents: 18000000,
-  },
-  {
-    street: '3757 Paseo Del Sol',
-    bedrooms: 5,
-    bathrooms: 4,
-    price_cents: 37800000,
-  },
-];
+const URL = 'https://s3.amazonaws.com/opendoor-problems/comps.json';
 
 module.exports = angular.module('app.routes.analysis', [])
 .config(function($stateProvider) {
@@ -27,8 +8,10 @@ module.exports = angular.module('app.routes.analysis', [])
     url: '/analysis',
     template: require('./analysis.jade')(),
     resolve: {
-      compData: function() {
-        return COMPS;
+      compData: function($http) {
+        return $http.get(URL).then(function(response) {
+          return response.data.comps.map((comp) => comp.listing);
+        });
       },
     },
     controllerAs: 'analysisCtrl',
