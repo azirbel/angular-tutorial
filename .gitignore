@@ -1,2 +1,4 @@
 index.html
 node_modules
+app/app.js
+app/external.js

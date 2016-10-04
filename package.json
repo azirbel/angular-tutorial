@@ -1,0 +1,37 @@
+{
+  "name": "comps-app",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.5.5",
+    "angular-ui-router": "0.2.14",
+    "autoprefixer": "6.4.0",
+    "babel-core": "6.13.2",
+    "babel-eslint": "6.0.4",
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015": "6.13.2",
+    "babel-preset-stage-1": "6.13.0",
+    "css-loader": "0.23.1",
+    "eslint": "2.10.2",
+    "exports-loader": "0.6.3",
+    "imports-loader": "0.6.5",
+    "jade": "1.11.0",
+    "jade-loader": "0.8.0",
+    "json-loader": "0.5.4",
+    "less": "2.7.1",
+    "less-loader": "2.2.3",
+    "lodash": "4.15.0",
+    "ng-annotate-loader": "0.1.0",
+    "normalize.css": "4.1.1",
+    "normalizr": "2.0.0",
+    "postcss-loader": "0.9.1",
+    "style-loader": "0.13.1",
+    "webpack": "1.13.1"
+  },
+  "scripts": {
+    "start": "npm ls >/dev/null && webpack --watch --debug --output-pathinfo --devtool=eval-source-map --progress"
+  },
+  "devDependencies": {
+    "jade-cli": "^0.1.1"
+  }
+}
