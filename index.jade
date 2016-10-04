@@ -4,7 +4,26 @@ html
     title Hello World
     script( src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js" )
     script( type="text/javascript" ).
-      let app = angular.module('compsApp', [])
+      let app = angular.module('compsApp', []);
+
+      const COMPS = [
+        '116 New Montgomery St',
+        '123 Sesame St',
+        '3757 Paseo Del Sol',
+      ];
+
+      app.component('similarComps', {
+        template: `
+          <div ng-repeat='comp in $ctrl.COMPS'>
+            <comp-card address='{{comp}}'></comp-card>
+          </div>
+        `,
+        controller: class {
+          constructor() {
+            this.COMPS = COMPS;
+          }
+        }
+      });
 
       app.component('compCard', {
         bindings: {
@@ -21,8 +40,8 @@ html
       .card {
         border: 1px solid black;
         padding: 10px;
+        margin-top: 10px;
       }
   body( ng-app="compsApp" )
     h1 Hello World!
-    p Some information here.
-    comp-card( address="116 New Mongtomery" )
+    similar-comps
