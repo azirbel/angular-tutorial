@@ -2,7 +2,9 @@ import angular from 'angular';
 
 const URL = 'https://s3.amazonaws.com/opendoor-problems/comps.json';
 
-module.exports = angular.module('app.routes.analysis', [])
+module.exports = angular.module('app.routes.analysis', [
+  require('./comp.js'),
+])
 .config(function($stateProvider) {
   $stateProvider.state('analysis', {
     url: '/analysis',
